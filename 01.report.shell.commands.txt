@@ -1,0 +1,86 @@
+1. echo hello world
+  The output is "Hello World"
+  This command is to print out anything is written after <echo>
+
+2. passwd
+   " Changing password for minhhoang
+    Current password:"
+    
+    this command is to change the password
+
+3. date
+  "Thứ năm, ngày 16 tháng 1 năm 2020 08:45:10 +07"
+  this command prints out the date and time
+ 
+4. hostname
+   "minhhoang-OMEN-by-HP-laptop"   this command shows the name of device
+5. arch
+  "x86_64"  it is computer architechture
+6. uname -a
+  Linux minhhoang-OMEN-by-HP-Laptop 5.3.0-26-generic #28-Ubuntu SMP Wed Dec 18 05:37:46 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+  this command prints the name, version and other details about the current machine and the operating system running on it.
+7. dmesg
+  dmesg is a command on most Unix-like operating systems that prints the message buffer of the kernel.
+  [ 1504.042744] pcieport 0000:00:1c.5: AER:   device [8086:a115] error status/mask=00000001/00002000
+  [ 1504.042745] pcieport 0000:00:1c.5: AER:    [ 0] RxErr                 
+  [ 1576.037499] pcieport 0000:00:1c.5: AER: Corrected error received: 0000:00:1c.5
+  [ 1576.037504] pcieport 0000:00:1c.5: AER: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
+  [ 1576.037508] pcieport 0000:00:1c.5: AER:   device [8086:a115] error status/mask=00000001/00002000
+  [ 1576.037510] pcieport 0000:00:1c.5: AER:    [ 0] RxErr                 
+  [ 1582.039138] pcieport 0000:00:1c.5: AER: Corrected error received: 0000:00:1c.5
+  [ 1582.039143] pcieport 0000:00:1c.5: AER: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
+  [ 1582.039147] pcieport 0000:00:1c.5: AER:   device [8086:a115] error status/mask=00000001/00002000
+  [ 1582.039149] pcieport 0000:00:1c.5: AER:    [ 0] RxErr   
+8. uptime
+  08:58:49 up 32 min,  1 user,  load average: 0,58, 0,56, 0,54
+  Display the time since the last boot
+  
+9. who am i
+    no output
+10. whoami
+    minhhoang
+    It displays the username of the current user when this command is invoked
+11. who 
+  minhhoang :0           2020-01-16 15:26 (:0)
+  displays a list of users who are currently logged into the computer. 
+12.id
+  uid=1000(minhhoang) gid=1000(minhhoang) groups=1000(minhhoang),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),119(lpadmin),130(lxd),131(sambashare)
+  it prints user and group information for the specified USERNAME, or (when USERNAME omitted) for the current user
+13.last
+  inhhoan :0           :0               Thu Jan 16 15:26   still logged in
+reboot   system boot  5.3.0-26-generic Thu Jan 16 15:26   still running
+minhhoan :0           :0               Thu Jan 16 15:11 - down   (00:00)
+reboot   system boot  5.3.0-26-generic Thu Jan 16 07:46 - 15:11  (07:25)
+minhhoan :0           :0               Wed Jan 15 14:31 - down   (00:00)
+reboot   system boot  5.3.0-26-generic Wed Jan 15 14:31 - 14:32  (00:01)
+minhhoan :0           :0               Wed Jan 15 07:05 - down   (-6:50)
+reboot   system boot  5.3.0-26-generic Wed Jan 15 07:04 - 00:14  (-6:50)
+minhhoan :0           :0               Wed Jan 15 04:08 - down   (-6:07)
+reboot   system boot  5.3.0-26-generic Wed Jan 15 04:07 - 22:01  (-6:06)
+minhhoan :0           :0               Tue Jan 14 21:44 - down   (-6:54)
+reboot   system boot  5.3.0-26-generic Tue Jan 14 21:44 - 14:50  (-6:53)
+minhhoan :0           :0               Tue Jan 14 12:48 - down   (00:01)
+reboot   system boot  5.3.0-26-generic Tue Jan 14 12:47 - 12:49  (00:01)
+minhhoan :0           :0               Tue Jan 14 19:40 - down   (-6:53)
+reboot   system boot  5.3.0-26-generic Tue Jan 14 19:39 - 12:46  (-6:53)
+minhhoan :0           :0               Mon Jan 13 23:26 - down   (-6:20)
+reboot   system boot  5.3.0-26-generic Mon Jan 13 23:25 - 17:05  (-6:20)
+minhhoan :0           :0               Mon Jan 13 15:15 - down   (00:00)
+reboot   system boot  5.3.0-26-generic Mon Jan 13 15:14 - 15:15  (00:01)
+minhhoan :0           :0               Mon Jan 13 15:09 - down   (00:02)
+reboot   system boot  5.3.0-26-generic Mon Jan 13 15:08 - 15:11  (00:02)
+
+wtmp begins Mon Jan 13 15:08:54 2020
+  this command displays the log in time
+  
+14. finger
+  Login      Name        Tty      Idle  Login Time   Office     Office Phone
+  minhhoang  minhhoang  *:0             Jan 16 15:26 (:0)
+  
+    this command displays info of system users.
+    
+15. w
+   09:15:46 up 49 min,  1 user,  load average: 0,61, 0,70, 0,66
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+minhhoan :0       :0               15:26   ?xdm?  19:32   0.02s /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --systemd --session=ubuntu
+  this command shows who is logged on

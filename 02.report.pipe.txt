@@ -5,6 +5,7 @@ names (filter with grep)
 		filelist.gz
 		listfile
 2. Count how many lines that /etc/passwd has (use wc)
+	input: wc
 	output: 46   81 2784 /etc/passwd
 
 3. Check how much memory that your machine has, not free

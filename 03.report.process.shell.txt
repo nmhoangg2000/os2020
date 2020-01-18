@@ -1,0 +1,95 @@
+1. List all your running processes (ps with more info from man)
+	input: ps aux
+	output: 
+root     11433  0.0  0.0      0     0 ?        I    10:42   0:00 [kworker/3:0-mm
+root     11435  0.0  0.0      0     0 ?        I    10:42   0:00 [kworker/2:3-ev
+minhhoa+ 11444  0.9  1.0 547420 84312 ?        Sl   10:42   0:00 /opt/google/chr
+minhhoa+ 11464  0.1  0.6 525204 52084 ?        Sl   10:42   0:00 /opt/google/chr
+root     11552  0.0  0.0      0     0 ?        I    10:42   0:00 [kworker/7:1-ev
+root     11553  0.0  0.0      0     0 ?        I    10:42   0:00 [kworker/7:3-ev
+root     11554  0.0  0.0      0     0 ?        I    10:42   0:00 [kworker/7:4-mm
+minhhoa+ 11567 10.2  0.6 969448 48212 ?        Ssl  10:43   0:00 /usr/libexec/gn
+minhhoa+ 11578  0.7  0.0  22328  5404 pts/0    Ss   10:43   0:00 bash
+minhhoa+ 11584  0.0  0.0  22940  3564 pts/0    R+   10:43   0:00 ps aux
+
+2. Start a new process, gnome-calculator for example
+	input: gnome-calculator
+	output: a calculator
+
+3. Find process id of your newly-created process (ps with grep)
+	ps -e | grep gnome
+ 1347 ?        00:00:00 gnome-keyring-d
+ 1440 tty2     00:00:00 gnome-session-b
+ 1594 ?        00:00:00 gnome-session-c
+ 1616 ?        00:00:00 gnome-session-b
+ 1636 ?        00:01:41 gnome-shell
+ 1681 ?        00:00:00 gnome-shell-cal
+ 2074 ?        00:00:10 gnome-terminal-
+ 2479 ?        00:00:02 gnome-software
+[1]+  Done                    gnome-calculator
+4. Show its process status (see content of /proc/<id>/status)
+	i choose gnome-software
+input:	cat /proc/2479/status
+output:	Name:	gnome-software
+	Umask:	0022
+	State:	S (sleeping)
+	Tgid:	2479
+	Ngid:	0
+	Pid:	2479
+	PPid:	1616
+	TracerPid:	0
+	Uid:	1000	1000	1000	1000
+	Gid:	1000	1000	1000	1000
+	FDSize:	64
+	Groups:	4 24 27 30 46 119 130 131 1000 
+	NStgid:	2479
+	NSpid:	2479
+	NSpgid:	1616
+	NSsid:	1616
+	VmPeak:	  999824 kB
+	VmSize:	  967096 kB
+	VmLck:	      16 kB
+	VmPin:	       0 kB
+	VmHWM:	  137664 kB
+	VmRSS:	  137664 kB
+	RssAnon:	   96608 kB
+	RssFile:	   39660 kB
+	RssShmem:	    1396 kB
+	VmData:	  152588 kB
+	VmStk:	     132 kB
+	VmExe:	     568 kB
+	VmLib:	   31524 kB
+	VmPTE:	     456 kB
+	VmSwap:	       0 kB
+	HugetlbPages:	       0 kB
+	CoreDumping:	0
+	THP_enabled:	1
+	Threads:	4
+	SigQ:	0/31170
+	SigPnd:	0000000000000000
+	ShdPnd:	0000000000000000
+	SigBlk:	0000000000000000
+	SigIgn:	0000000000001000
+	SigCgt:	0000000180000000
+	CapInh:	0000000000000000
+	CapPrm:	0000000000000000
+	CapEff:	0000000000000000
+	CapBnd:	0000003fffffffff
+	CapAmb:	0000000000000000
+	NoNewPrivs:	0
+	Seccomp:	0
+	Speculation_Store_Bypass:	thread vulnerable
+	Cpus_allowed:	ff
+	Cpus_allowed_list:	0-7
+	Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+	Mems_allowed_list:	0
+	voluntary_ctxt_switches:	4463
+	nonvoluntary_ctxt_switches:	24
+	
+
+5.Pause it (kill with signal STOP)
+	kill -STOP 2479
+6.Resume it (kill with signal CONT)
+	kill -CONT 2479
+7.Terminate it (kill with signal KILL)
+	kill -KILL 2479

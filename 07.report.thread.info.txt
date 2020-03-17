@@ -1,0 +1,8 @@
+Show number of threads for process firefox using Count number of subdirectory in
+/proc/<processId>/tasks
+	Command: ps -aux | grep "firefox" |awk '{if(NR == 1) print $2}' (find the firefox process id)
+	Output: 4769
+
+
+	Command: ps -0 nlwp 4769
+	Output: NLWP

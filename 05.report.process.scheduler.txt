@@ -1,0 +1,43 @@
+Number of context switches for process systemd using two files
+1. /proc/sched_debug
+	Command: /proc/sched_debug
+	Output:
+
+Ssystemd-journal   367       145.370265      2499   119         0.000000      1190.645614         0.000000 0 0 /autogroup-9
+ S        systemd  1247       270.385797       490   120         0.000000       748.834657         0.000000 0 0 /autogroup-81
+ S  systemd-udevd   427      1685.198172      2954   120         0.000000      1343.989825         0.000000 0 0 /autogroup-17
+ S systemd-logind  1041        37.888968      6270   120         0.000000       581.326569         0.000000 0 0 /autogroup-56
+ Ssystemd-timesyn   988         2.874509       139   120         0.000000       234.031731         0.000000 0 0 /autogroup-31
+ Ssystemd-resolve   986       234.614264      3769   120         0.000000      1783.492165         0.000000 0 0 /autogroup-29
+ S        systemd     1      6128.133729    591587   120         0.000000     24782.683360         0.000000 0 0 /autogroup-2
+
+	Command: grep "systemd" /proc/sched_debug | awk '{print $5}' | paste -sd+ | bc
+	Output: 624897
+
+2./proc/<processId>/sched
+
+	Command:LIST=$(ps -A | grep systemd | awk {'print $1'})
+            	for i in $LIST; do grep switches /proc/$i/sched; done 
+	output:
+
+nr_switches                                  :               734560
+nr_voluntary_switches                        :               733715
+nr_involuntary_switches                      :                  845
+nr_switches                                  :                 2682
+nr_voluntary_switches                        :                 2596
+nr_involuntary_switches                      :                   86
+nr_switches                                  :                 2986
+nr_voluntary_switches                        :                 2633
+nr_involuntary_switches                      :                  353
+nr_switches                                  :                 4257
+nr_voluntary_switches                        :                 4076
+nr_involuntary_switches                      :                  181
+nr_switches                                  :                  155
+nr_voluntary_switches                        :                  139
+nr_involuntary_switches                      :                   16
+nr_switches                                  :                 7217
+nr_voluntary_switches                        :                 7160
+nr_involuntary_switches                      :                   57
+nr_switches                                  :                  499
+nr_voluntary_switches                        :                  364
+nr_involuntary_switches                      :                  135
